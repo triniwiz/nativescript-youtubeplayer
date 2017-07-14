@@ -37,4 +37,4 @@ registerElement("YoutubePlayer", () => require("nativescript-youtubeplayer").You
 
 # TODO
 
-- [ ] Progress
+- [ ] IOS
