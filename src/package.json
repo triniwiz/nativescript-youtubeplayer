@@ -1,12 +1,13 @@
 {
     "name": "nativescript-youtubeplayer",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "YoutubePlayer for Nativescript",
     "main": "youtubeplayer",
     "typings": "index.d.ts",
     "nativescript": {
         "platforms": {
-            "android": "3.0.0"
+            "android": "3.0.0",
+            "ios":"3.0.0"
         }
     },
     "scripts": {
@@ -19,6 +20,8 @@
         "plugin.tscwatch": "npm run tsc -- -w",
         "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
         "demo.android": "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
+        "demo.ng.ios": "npm i && npm run tsc && cd ../demo-ng && tns run ios --syncAllFiles",
+        "demo.ng.android": "npm i && npm run tsc && cd ../demo-ng && tns run android --syncAllFiles",
         "clean": "rm -rf node_modules && cd ../demo && rm -rf hooks node_modules platforms && cd ../src && npm run plugin.link"
     },
     "keywords": [
