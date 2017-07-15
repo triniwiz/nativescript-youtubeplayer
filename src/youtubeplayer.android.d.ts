@@ -3,6 +3,8 @@ export declare class YoutubePlayer extends common.YoutubePlayer {
     player: any;
     private _fullScreen;
     createNativeView(): any;
+    initNativeView(): void;
+    private initializePlayer();
     play(): void;
     stop(): void;
     destory(): void;
