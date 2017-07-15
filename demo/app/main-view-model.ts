@@ -4,7 +4,7 @@ export class HelloWorldModel extends Observable {
   constructor() {
     super();
     setTimeout(() => {
-      this.set('src', 'PMivT7MJ41M');
-    }, 5000);
+      this.set('src', 'vEG4qNW33mA');
+    }, 10000);
   }
 }
