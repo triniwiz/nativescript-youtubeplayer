@@ -1,6 +1,6 @@
 {
     "name": "nativescript-youtubeplayer",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "YoutubePlayer for Nativescript",
     "main": "youtubeplayer",
     "typings": "index.d.ts",
