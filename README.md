@@ -37,5 +37,5 @@ registerElement("YoutubePlayer", () => require("nativescript-youtubeplayer").You
 
 # TODO
 
-- [*] IOS
+- [x] IOS
 - [ ] toggleFullscreen IOS
