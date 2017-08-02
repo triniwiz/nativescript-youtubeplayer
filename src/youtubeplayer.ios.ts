@@ -2,17 +2,34 @@ import * as common from './youtubeplayer.common';
 global.moduleMerge(common, exports);
 export class YoutubePlayer extends common.YoutubePlayer {
     private _fullScreen: boolean;
+    private _playerVars: any;
     nativeView: YTPlayerView;
     public createNativeView() {
         return YTPlayerView.new();
     }
-    public initNativeView() {
-        if (this.src) {
-            this.nativeView.loadWithVideoId(this.src);
+    [common.srcProperty.setNative](src: string) {
+        this.nativeView.loadWithVideoIdPlayerVars(src, <any>this._playerVars);
+    }
+    [common.optionsProperty.defaultValue]() {
+        this._playerVars = {
+            "modestbranding": "1",
+            "controls": "2",
+            "playsinline": "1",
+            "autohide": "1",
+            "showinfo": "0",
+            "autoplay": "1",
+            "fs": "1",
+            "rel": "0",
+            "loop": "0",
+            "enablejsapi": "1",
+            "iv_load_policy": "3"
         }
     }
-    [common.srcProperty.setNative](src: string) {
-        this.nativeView.loadWithVideoId(this.src);
+    [common.optionsProperty.setNative](options: any) {
+        this._playerVars = options;
+        if (this.src) {
+            this.nativeView.cueVideoByIdStartSecondsSuggestedQuality(this.src, this.nativeView.currentTime(), YTPlaybackQuality.kYTPlaybackQualityAuto);
+        }
     }
     play(): void {
         this.nativeView.playVideo();

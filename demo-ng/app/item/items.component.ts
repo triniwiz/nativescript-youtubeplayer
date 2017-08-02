@@ -17,5 +17,8 @@ export class ItemsComponent implements OnInit {
 
     ngOnInit(): void {
         this.items = this.itemService.getItems();
+        setTimeout(()=>{
+            this.src = 'FrkEDe6Ljqs';
+        },10000);
     }
 }
