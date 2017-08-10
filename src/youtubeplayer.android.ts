@@ -48,7 +48,7 @@ export class YoutubePlayer extends common.YoutubePlayer {
             this.player.stop();
         }
     }
-    destory() {
+    destroy() {
         if (this.player) {
             this.player.release()();
         }

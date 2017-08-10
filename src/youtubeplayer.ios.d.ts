@@ -7,7 +7,7 @@ export declare class YoutubePlayer extends common.YoutubePlayer {
     play(): void;
     pause(): void;
     stop(): void;
-    destory(): void;
+    destroy(): void;
     isPlaying(): boolean;
     toggleFullscreen(): void;
 }

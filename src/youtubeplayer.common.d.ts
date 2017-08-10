@@ -6,4 +6,5 @@ export declare const optionsProperty: Property<YoutubePlayer, any>;
 export declare class YoutubePlayer extends ContentView {
     apiKey: string;
     src: string;
+    options: any;
 }
