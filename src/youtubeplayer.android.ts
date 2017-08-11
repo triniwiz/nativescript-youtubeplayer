@@ -14,6 +14,9 @@ export class YoutubePlayer extends common.YoutubePlayer {
             this.initializePlayer();
         }
     }
+    public disposeNativeView(){
+        this.destroy();
+    }
     [common.srcProperty.setNative](src: string) {
         if (this.player) {
             this.player.cueVideo(src);
@@ -50,7 +53,7 @@ export class YoutubePlayer extends common.YoutubePlayer {
     }
     destroy() {
         if (this.player) {
-            this.player.release()();
+            this.player.release();
         }
     }
     pause() {
