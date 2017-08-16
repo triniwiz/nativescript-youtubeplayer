@@ -6,4 +6,14 @@ export function pageLoaded(args: observable.EventData) {
     // Get the event sender
     let page = <pages.Page>args.object;
     page.bindingContext = new HelloWorldModel();
+    const player = page.getViewById('player');
+    player.on('playing', (args) => {
+        console.log('playing')
+    });
+    player.on('paused', (args) => {
+        console.log('paused')
+    });
+    player.on('fullScreen',(args)=>{
+        console.log(args.object.get('value'))
+    })
 }
