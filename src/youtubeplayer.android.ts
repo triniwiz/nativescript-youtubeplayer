@@ -25,10 +25,14 @@ export class YoutubePlayer extends common.YoutubePlayer {
     [common.srcProperty.setNative](src: string) {
         if (this.player) {
             this.player.cueVideo(src);
+        } else if (this.apiKey && !this.player) {
+            this.initializePlayer();
         }
     }
     [common.apiKeyProperty.setNative](apiKey: string) {
-        this.initializePlayer();
+        if (!this.player) {
+            this.initializePlayer();
+        }
     }
     [playerStyleProperty.getDefault](): number {
         return 1;
@@ -168,6 +172,7 @@ export class YoutubePlayer extends common.YoutubePlayer {
     destroy() {
         if (this.player) {
             this.player.release();
+            this.player = null;
         }
     }
     pause() {
