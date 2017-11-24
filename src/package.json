@@ -25,7 +25,8 @@
         "clean": "rm -rf node_modules && cd ../demo && rm -rf hooks node_modules platforms && cd ../src && npm run plugin.link",
         "ngc": "npm run ngc.clean && node --max-old-space-size=8192 ./node_modules/.bin/ngc -p tsconfig.aot.json",
         "ngc.clean": "find ./ angular/ -name '*.metadata.json' -delete",
-        "prepublish": "npm run ngc"
+        "prepublish": "npm run ngc",
+        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'"
     },
     "keywords": [
         "NativeScript",
