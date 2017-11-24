@@ -7,6 +7,7 @@ ROOT_DIR=..;
 PUBLISH=--publish
 
 install(){
+    npm install npm@4
     npm i
 }
 
@@ -37,7 +38,7 @@ pack() {
 
     # create the package
     cd "$PACK_DIR"
-    npm pack ../"$TO_SOURCE_DIR"
+    $(npm bin)/npm pack ../"$TO_SOURCE_DIR"
 
     # delete source directory used to create the package
     cd ..

@@ -1,16 +1,19 @@
-import * as common from './youtubeplayer.common';
-export declare class YoutubePlayer extends common.YoutubePlayer {
+import { YoutubePlayerBase } from './youtubeplayer.common';
+export declare class YoutubePlayer extends YoutubePlayerBase {
+    private _pageFragment;
     player: any;
     playerStyle: number;
     private _fullScreen;
-    createNativeView(): any;
-    initNativeView(): void;
+    private _fragment;
+    private _layoutId;
+    createNativeView(): android.widget.LinearLayout;
     disposeNativeView(): void;
     private initializePlayer();
     play(): void;
     stop(): void;
     destroy(): void;
     pause(): void;
-    isPlaying(): any;
+    isPlaying(): boolean;
     toggleFullscreen(): void;
+    readonly isFullScreen: boolean;
 }

@@ -1,5 +1,5 @@
-import * as common from './youtubeplayer.common';
-export declare class YoutubePlayer extends common.YoutubePlayer {
+import { YoutubePlayerBase } from './youtubeplayer.common';
+export declare class YoutubePlayer extends YoutubePlayerBase {
     _fullScreen: boolean;
     private _playerVars;
     nativeView: YTPlayerView;
@@ -12,6 +12,7 @@ export declare class YoutubePlayer extends common.YoutubePlayer {
     destroy(): void;
     isPlaying(): boolean;
     toggleFullscreen(): void;
+    readonly isFullScreen: boolean;
 }
 export declare class YTPlayerViewDelegateImpl extends NSObject implements YTPlayerViewDelegate {
     static ObjCProtocols: {

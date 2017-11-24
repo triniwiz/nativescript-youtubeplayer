@@ -1,28 +1,25 @@
 # NativeScript YoutubePlayer
 
+[![npm](https://img.shields.io/npm/v/nativescript-youtubeplayer.svg)](https://www.npmjs.com/package/nativescript-youtubeplayer)
+[![npm](https://img.shields.io/npm/dt/nativescript-youtubeplayer.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-youtubeplayer)
+[![Build Status](https://travis-ci.org//triniwiz/nativescript-youtubeplayer.svg?branch=master)](https://travis-ci.org/triniwiz/nativescript-youtubeplayer)
 
 ## Installation
-
 
 ```
 tns plugin add nativescript-youtubeplayer
 ```
 
-## Usage 
+## Usage
 
 ### Android
-Update your default activity to use the custom activity needed for the player.
 
-```xml
-<activity
-			android:name="com.github.triniwiz.YoutubePlayerActivity"
-			android:label="@string/title_activity_kimera"
-			android:configChanges="keyboardHidden|orientation|screenSize"
-			android:theme="@style/LaunchScreenTheme">
-```
-Api key follow ➡ [link](https://developers.google.com/youtube/android/player/register) to get your api key
+Api key follow ➡
+[link](https://developers.google.com/youtube/android/player/register) to get
+your api key
 
-IMPORTANT: Make sure you include xmlns:ui="nativescript-youtubeplayer" on the Page element
+IMPORTANT: Make sure you include xmlns:ui="nativescript-youtubeplayer" on the
+Page element
 
 ```xml
 <ui:YoutubePlayer id="player" apiKey="AIzaSyCDH3BGQZT2ebUfSE8D3I8NLqaCPu4FRh0" src="{{src}}" height="250" width="100%" backgroundColor="gray" />
@@ -30,12 +27,25 @@ IMPORTANT: Make sure you include xmlns:ui="nativescript-youtubeplayer" on the Pa
 
 #### Angular
 
-```ts
-import { registerElement } from "nativescript-angular/element-registry";
-registerElement("YoutubePlayer", () => require("nativescript-youtubeplayer").YoutubePlayer);
+```
+import { YoutubePlayerModule } from 'nativescript-youtubeplayer/angular';
+
+@NgModule({
+    imports: [
+    YoutubePlayerModule
+    ],
+    declarations: [
+        AppComponent
+    ],
+    bootstrap: [AppComponent]
+})
+```
+
+```xml
+<YoutubePlayer id="player" apiKey="AIzaSyCDH3BGQZT2ebUfSE8D3I8NLqaCPu4FRh0" src="{{src}}" height="250" width="100%" backgroundColor="gray"></YoutubePlayer>
 ```
 
 # TODO
 
-- [x] IOS
-- [ ] toggleFullscreen IOS
+* [x] IOS
+* [ ] toggleFullscreen IOS

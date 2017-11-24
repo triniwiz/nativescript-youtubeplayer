@@ -1,6 +1,10 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page"
+<Page 
+  xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page" 
   xmlns:ui="nativescript-youtubeplayer">
-  <StackLayout class="p-20" id="container">
-    <ui:YoutubePlayer id="player" options="{{options}}" apiKey="AIzaSyAUm14Rg9vH_Zv9X5BeWQ8UyMMypEq4htA" src="{{src}}" height="250" width="100%" backgroundColor="gray" />
-  </StackLayout>
+  <ScrollView>
+    <StackLayout class="p-20" id="container">
+      <ui:YoutubePlayer id="player" options="{{options}}" apiKey="AIzaSyAUm14Rg9vH_Zv9X5BeWQ8UyMMypEq4htA" src="{{src}}" backgroundColor="gray" />
+      <Button text="Change Source" tap="{{changeSource}}"/>
+    </StackLayout>
+  </ScrollView>
 </Page>
