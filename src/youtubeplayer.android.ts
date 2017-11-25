@@ -212,7 +212,7 @@ export class YoutubePlayer extends YoutubePlayerBase {
   }
   public stop(): void {
     if (this.player) {
-      this.player.stop();
+      this.player.release();
     }
   }
   public destroy(): void {

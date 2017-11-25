@@ -50,7 +50,7 @@ declare const enum YTPlayerState {
 	kYTPlayerStateUnknown = 6
 }
 
-declare class YTPlayerView extends UIView implements UIWebViewDelegate {
+declare class YTPlayerView extends UIView implements WKNavigationDelegate {
 
 	static alloc(): YTPlayerView; // inherited from NSObject
 
@@ -70,7 +70,7 @@ declare class YTPlayerView extends UIView implements UIWebViewDelegate {
 
 	delegate: YTPlayerViewDelegate;
 
-	readonly webView: UIWebView;
+	readonly webView: WKWebView;
 
 	readonly debugDescription: string; // inherited from NSObjectProtocol
 
@@ -107,6 +107,8 @@ declare class YTPlayerView extends UIView implements UIWebViewDelegate {
 	currentTime(): number;
 
 	duration(): number;
+
+	fullScreen(fullScreen: boolean): void;
 
 	isEqual(object: any): boolean;
 
@@ -188,18 +190,32 @@ declare class YTPlayerView extends UIView implements UIWebViewDelegate {
 
 	videoUrl(): NSURL;
 
-	webViewDidFailLoadWithError(webView: UIWebView, error: NSError): void;
+	webViewDecidePolicyForNavigationActionDecisionHandler(webView: WKWebView, navigationAction: WKNavigationAction, decisionHandler: (p1: WKNavigationActionPolicy) => void): void;
 
-	webViewDidFinishLoad(webView: UIWebView): void;
+	webViewDecidePolicyForNavigationResponseDecisionHandler(webView: WKWebView, navigationResponse: WKNavigationResponse, decisionHandler: (p1: WKNavigationResponsePolicy) => void): void;
 
-	webViewDidStartLoad(webView: UIWebView): void;
+	webViewDidCommitNavigation(webView: WKWebView, navigation: WKNavigation): void;
 
-	webViewShouldStartLoadWithRequestNavigationType(webView: UIWebView, request: NSURLRequest, navigationType: UIWebViewNavigationType): boolean;
+	webViewDidFailNavigationWithError(webView: WKWebView, navigation: WKNavigation, error: NSError): void;
+
+	webViewDidFailProvisionalNavigationWithError(webView: WKWebView, navigation: WKNavigation, error: NSError): void;
+
+	webViewDidFinishNavigation(webView: WKWebView, navigation: WKNavigation): void;
+
+	webViewDidReceiveAuthenticationChallengeCompletionHandler(webView: WKWebView, challenge: NSURLAuthenticationChallenge, completionHandler: (p1: NSURLSessionAuthChallengeDisposition, p2: NSURLCredential) => void): void;
+
+	webViewDidReceiveServerRedirectForProvisionalNavigation(webView: WKWebView, navigation: WKNavigation): void;
+
+	webViewDidStartProvisionalNavigation(webView: WKWebView, navigation: WKNavigation): void;
+
+	webViewWebContentProcessDidTerminate(webView: WKWebView): void;
 }
 
 interface YTPlayerViewDelegate extends NSObjectProtocol {
 
 	playerViewDidBecomeReady?(playerView: YTPlayerView): void;
+
+	playerViewDidChangeFullScreen?(playerView: YTPlayerView, fullScreen: boolean): void;
 
 	playerViewDidChangeToQuality?(playerView: YTPlayerView, quality: YTPlaybackQuality): void;
 

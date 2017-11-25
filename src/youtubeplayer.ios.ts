@@ -97,26 +97,9 @@ export class YoutubePlayer extends YoutubePlayerBase {
     );
   }
 
-  // public toggleFullscreen(): void {
-  //   /* TODO
-  //       this._fullScreen = !this._fullScreen;
-  //       const currentTime = this.nativeView.currentTime();
-  //       const vars = {
-  //           "modestbranding": "1",
-  //           "controls": "2",
-  //           "playsinline": "1",
-  //           "autohide": "1",
-  //           "showinfo": "0",
-  //           "autoplay": "1",
-  //           "fs": "1",
-  //           "rel": "0",
-  //           "loop": "0",
-  //           "enablejsapi": "1",
-  //           "iv_load_policy": "3"
-  //       }
-  //       this.nativeView.loadWithVideoIdPlayerVars(this.src, <any>vars);
-  //       this.nativeView.cueVideoByIdStartSecondsSuggestedQuality(this.src, currentTime, YTPlaybackQuality.kYTPlaybackQualityAuto);*/
-  // }
+  public toggleFullscreen(): void {
+    this.nativeView.fullScreen(!this._fullScreen);
+  }
 
   get isFullScreen(): boolean {
     return this._fullScreen;
@@ -134,6 +117,21 @@ export class YTPlayerViewDelegateImpl extends NSObject
     delegate._owner = owner;
     return delegate;
   }
+
+  playerViewDidChangeFullScreen(
+    playerView: YTPlayerView,
+    fullScreen: boolean
+  ): void {
+    const owner = this._owner.get();
+    owner._fullScreen = fullScreen;
+    owner.notify({
+      eventName: FULLSCREEN_EVENT,
+      object: fromObject({
+        value: fullScreen
+      })
+    });
+  }
+
   playerViewDidBecomeReady(playerView: YTPlayerView) {
     const owner = this._owner.get();
     owner._observer = application.ios.addNotificationObserver(

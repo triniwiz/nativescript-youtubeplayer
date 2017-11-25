@@ -6,5 +6,6 @@ export declare class YoutubePlayer extends YoutubePlayerBase {
   pause(): void;
   isPlaying(): boolean;
   toggleFullscreen(): void;
+  options?: any;
   readonly isFullScreen: boolean;
 }

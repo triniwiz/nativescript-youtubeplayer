@@ -12,6 +12,7 @@ export declare class YoutubePlayer extends YoutubePlayerBase {
     stop(): void;
     destroy(): void;
     isPlaying(): boolean;
+    toggleFullscreen(): void;
     readonly isFullScreen: boolean;
 }
 export declare class YTPlayerViewDelegateImpl extends NSObject implements YTPlayerViewDelegate {
@@ -20,6 +21,7 @@ export declare class YTPlayerViewDelegateImpl extends NSObject implements YTPlay
     }[];
     private _owner;
     static initWithOwner(owner: WeakRef<YoutubePlayer>): YTPlayerViewDelegateImpl;
+    playerViewDidChangeFullScreen(playerView: YTPlayerView, fullScreen: boolean): void;
     playerViewDidBecomeReady(playerView: YTPlayerView): void;
     playerViewDidChangeToState(playerView: YTPlayerView, state: YTPlayerState): void;
     playerViewReceivedError(playerView: YTPlayerView, error: YTPlayerError): void;
