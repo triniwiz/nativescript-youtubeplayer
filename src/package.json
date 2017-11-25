@@ -1,6 +1,6 @@
 {
     "name": "nativescript-youtubeplayer",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "YoutubePlayer for Nativescript",
     "main": "youtubeplayer",
     "typings": "index.d.ts",
@@ -25,8 +25,8 @@
         "clean": "rm -rf node_modules && cd ../demo && rm -rf hooks node_modules platforms && cd ../src && npm run plugin.link",
         "ngc": "npm run ngc.clean && node --max-old-space-size=8192 ./node_modules/.bin/ngc -p tsconfig.aot.json",
         "ngc.clean": "find ./ angular/ -name '*.metadata.json' -delete",
-        "prepublish": "npm run ngc",
-        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/+(node_modules|typings)/**'"
+        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/+(node_modules|typings)/**'",
+        "prepublish": "npm run ngc"
     },
     "keywords": [
         "NativeScript",
@@ -52,14 +52,14 @@
     },
     "devDependencies": {
         "@angular/core": "~4.2.5",
-        "@angular/common": "4.2.5",
-        "@angular/forms": "4.2.5",
-        "@angular/http": "4.2.5",
-        "@angular/platform-browser": "4.2.5",
-        "@angular/compiler": "4.2.5",
-        "@angular/compiler-cli": "4.2.5",
-        "@angular/router": "4.2.5",
-        "nativescript-angular": "4.2.0",
+        "@angular/common": "~4.2.5",
+        "@angular/forms": "~4.2.5",
+        "@angular/http": "~4.2.5",
+        "@angular/platform-browser": "~4.2.5",
+        "@angular/compiler": "~4.2.5",
+        "@angular/compiler-cli": "~4.2.5",
+        "@angular/router": "~4.2.5",
+        "nativescript-angular": "~4.2.0",
         "prompt": "^1.0.0",
         "rimraf": "^2.5.0",
         "rxjs": "^5.0.1",

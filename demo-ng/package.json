@@ -12,6 +12,9 @@
       "version": "3.1.0"
     }
   },
+  "scripts": {
+    "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'"
+  },
   "dependencies": {
     "@angular/animations": "~4.1.0",
     "@angular/common": "~4.1.0",
