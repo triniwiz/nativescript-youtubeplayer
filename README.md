@@ -50,9 +50,9 @@ import { YoutubePlayerModule } from 'nativescript-youtubeplayer/angular';
 
 | Property | Default | Type | Required | Description  |
 | --- | --- | --- | ---| ---|
-| src | null | string | <ul><li>- [x] </li></ul> |
-| options | null | Object | <ul><li>- [ ] </li></ul> |
-| isFullScreen | false  | boolean | <ul><li>- [ ] </li></ul> |
+| src | null | string | <ul><li>- [x] </li></ul> | Set the videoId to play e.g (Z0LWuKQcrUA) => https://www.youtube.com/watch?v=Z0LWuKQcrUA
+| options | null | Object | <ul><li>- [ ] </li></ul> | Player options [available](https://developers.google.com/youtube/player_parameters) *IOS only*
+| isFullScreen | false  | boolean | <ul><li>- [ ] </li></ul> | Returns if player is currently in fullscreen mode.
 
 ## Api
 
