@@ -13,6 +13,7 @@
     }
   },
   "scripts": {
+    "build.plugin": "cd ../src && npm run build",
     "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
     "ns-bundle": "ns-bundle",
     "publish-ios-bundle": "npm run ns-bundle --ios --publish-app",

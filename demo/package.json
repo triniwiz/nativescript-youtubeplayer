@@ -9,6 +9,7 @@
     }
   },
   "scripts": {
+    "build.plugin": "cd ../src && npm run build",
     "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
     "ns-bundle": "ns-bundle",
     "start-android-bundle": "npm run ns-bundle --android --run-app",
