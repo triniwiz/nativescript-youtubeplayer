@@ -13,7 +13,7 @@ import {
 import { fromObject } from 'tns-core-modules/data/observable';
 import * as utils from 'tns-core-modules/utils/utils';
 import * as application from 'tns-core-modules/application';
-
+import { layout } from 'tns-core-modules/ui/core/view';
 export class YoutubePlayer extends YoutubePlayerBase {
   _fullScreen: boolean;
   private _playerVars: any;
@@ -53,6 +53,15 @@ export class YoutubePlayer extends YoutubePlayerBase {
     this.nativeView.loadWithPlayerParams(opts);
   }
 
+  public onMeasure(widthMeasureSpec: number, heightMeasureSpec: number) {
+    const nativeView = this.nativeView;
+    if (nativeView) {
+      const width = layout.getMeasureSpecSize(widthMeasureSpec);
+      const height = layout.getMeasureSpecSize(heightMeasureSpec);
+      this.setMeasuredDimension(width, height);
+    }
+  }
+
   public play(): void {
     this.nativeView.playVideo();
   }
@@ -88,26 +97,26 @@ export class YoutubePlayer extends YoutubePlayerBase {
     );
   }
 
-  public toggleFullscreen(): void {
-    /* TODO
-        this._fullScreen = !this._fullScreen;
-        const currentTime = this.nativeView.currentTime();
-        const vars = {
-            "modestbranding": "1",
-            "controls": "2",
-            "playsinline": "1",
-            "autohide": "1",
-            "showinfo": "0",
-            "autoplay": "1",
-            "fs": "1",
-            "rel": "0",
-            "loop": "0",
-            "enablejsapi": "1",
-            "iv_load_policy": "3"
-        }
-        this.nativeView.loadWithVideoIdPlayerVars(this.src, <any>vars);
-        this.nativeView.cueVideoByIdStartSecondsSuggestedQuality(this.src, currentTime, YTPlaybackQuality.kYTPlaybackQualityAuto);*/
-  }
+  // public toggleFullscreen(): void {
+  //   /* TODO
+  //       this._fullScreen = !this._fullScreen;
+  //       const currentTime = this.nativeView.currentTime();
+  //       const vars = {
+  //           "modestbranding": "1",
+  //           "controls": "2",
+  //           "playsinline": "1",
+  //           "autohide": "1",
+  //           "showinfo": "0",
+  //           "autoplay": "1",
+  //           "fs": "1",
+  //           "rel": "0",
+  //           "loop": "0",
+  //           "enablejsapi": "1",
+  //           "iv_load_policy": "3"
+  //       }
+  //       this.nativeView.loadWithVideoIdPlayerVars(this.src, <any>vars);
+  //       this.nativeView.cueVideoByIdStartSecondsSuggestedQuality(this.src, currentTime, YTPlaybackQuality.kYTPlaybackQualityAuto);*/
+  // }
 
   get isFullScreen(): boolean {
     return this._fullScreen;

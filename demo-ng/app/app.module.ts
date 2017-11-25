@@ -17,7 +17,6 @@ import { YoutubePlayerModule } from 'nativescript-youtubeplayer/angular';
   bootstrap: [AppComponent],
   imports: [NativeScriptModule, AppRoutingModule, YoutubePlayerModule],
   declarations: [AppComponent, ItemsComponent, ItemDetailComponent],
-  providers: [ItemService],
   schemas: [NO_ERRORS_SCHEMA]
 })
 /*

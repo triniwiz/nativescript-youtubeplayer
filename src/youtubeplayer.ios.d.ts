@@ -6,12 +6,12 @@ export declare class YoutubePlayer extends YoutubePlayerBase {
     _observer: any;
     createNativeView(): YTPlayerView;
     initNativeView(): void;
+    onMeasure(widthMeasureSpec: number, heightMeasureSpec: number): void;
     play(): void;
     pause(): void;
     stop(): void;
     destroy(): void;
     isPlaying(): boolean;
-    toggleFullscreen(): void;
     readonly isFullScreen: boolean;
 }
 export declare class YTPlayerViewDelegateImpl extends NSObject implements YTPlayerViewDelegate {

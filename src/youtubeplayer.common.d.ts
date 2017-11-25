@@ -1,5 +1,4 @@
-import { Property } from 'tns-core-modules/ui/core/view';
-import { ContentView } from 'tns-core-modules/ui/content-view';
+import { Property, View } from 'tns-core-modules/ui/core/view';
 export declare const FULLSCREEN_EVENT = "fullScreen";
 export declare const PLAYING_EVENT = "playing";
 export declare const PAUSED_EVENT = "paused";
@@ -15,7 +14,7 @@ export declare const SEEK_EVENT = "seek";
 export declare const apiKeyProperty: Property<YoutubePlayerBase, string>;
 export declare const srcProperty: Property<YoutubePlayerBase, string>;
 export declare const optionsProperty: Property<YoutubePlayerBase, any>;
-export declare class YoutubePlayerBase extends ContentView {
+export declare class YoutubePlayerBase extends View {
     apiKey: string;
     src: string;
     options: any;

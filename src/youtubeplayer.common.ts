@@ -1,5 +1,4 @@
-import { Property } from 'tns-core-modules/ui/core/view';
-import { ContentView } from 'tns-core-modules/ui/content-view';
+import { Property, View } from 'tns-core-modules/ui/core/view';
 export const FULLSCREEN_EVENT = 'fullScreen';
 export const PLAYING_EVENT = 'playing';
 export const PAUSED_EVENT = 'paused';
@@ -24,7 +23,7 @@ export const optionsProperty = new Property<YoutubePlayerBase, any>({
   name: 'options'
 });
 
-export class YoutubePlayerBase extends ContentView {
+export class YoutubePlayerBase extends View {
   apiKey: string;
   src: string;
   options: any;

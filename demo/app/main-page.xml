@@ -2,8 +2,8 @@
   xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page" 
   xmlns:ui="nativescript-youtubeplayer">
   <ScrollView>
-    <StackLayout class="p-20" id="container">
-      <ui:YoutubePlayer id="player" options="{{options}}" apiKey="AIzaSyAUm14Rg9vH_Zv9X5BeWQ8UyMMypEq4htA" src="{{src}}" backgroundColor="gray" />
+    <StackLayout height="100%" class="p-20" id="container">
+      <ui:YoutubePlayer height="75%" width="75%" id="player" options="{{options}}" apiKey="AIzaSyAUm14Rg9vH_Zv9X5BeWQ8UyMMypEq4htA" src="{{src}}" backgroundColor="gray" />
       <Button text="Change Source" tap="{{changeSource}}"/>
     </StackLayout>
   </ScrollView>

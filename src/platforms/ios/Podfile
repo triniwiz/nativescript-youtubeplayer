@@ -1,1 +1,1 @@
-pod "youtube-ios-player-helper", "~> 0.1.4"
+pod "youtube-ios-player-helper", :git => 'https://github.com/triniwiz/youtube-ios-player-helper.git'
