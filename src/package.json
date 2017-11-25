@@ -15,7 +15,7 @@
         "postclone": "npm i && node scripts/postclone.js && cd ../demo && npm i && cd ../src && npm run plugin.link",
         "test.android": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
         "test.ios": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
-        "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
+        "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/+(node_modules|typings)/**\"",
         "plugin.link": "npm link && cd ../demo && npm link nativescript-youtubeplayer && cd ../demo-ng && npm link nativescript-youtubeplayer && cd ../src",
         "plugin.tscwatch": "npm run tsc -- -w",
         "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
@@ -26,7 +26,7 @@
         "ngc": "npm run ngc.clean && node --max-old-space-size=8192 ./node_modules/.bin/ngc -p tsconfig.aot.json",
         "ngc.clean": "find ./ angular/ -name '*.metadata.json' -delete",
         "prepublish": "npm run ngc",
-        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'"
+        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/+(node_modules|typings)/**'"
     },
     "keywords": [
         "NativeScript",
