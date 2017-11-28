@@ -54,7 +54,7 @@ export class YoutubePlayer extends YoutubePlayerBase {
   }
   [srcProperty.setNative](src: string) {
     if (this.player) {
-      this.player.cueVideo(src);
+      this.player.loadVideo(src);
     } else if (this.apiKey && !this.player) {
       this.initializePlayer();
     }
