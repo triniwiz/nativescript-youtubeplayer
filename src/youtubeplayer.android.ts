@@ -32,6 +32,7 @@ export class YoutubePlayer extends YoutubePlayerBase {
   private _fullScreen: boolean;
   private _fragment: any;
   private _layoutId: number;
+  private _isInit: boolean;
   public createNativeView() {
     this._layoutId = android.view.View.generateViewId();
     const nativeView = new android.widget.LinearLayout(this._context);
@@ -55,14 +56,12 @@ export class YoutubePlayer extends YoutubePlayerBase {
   [srcProperty.setNative](src: string) {
     if (this.player) {
       this.player.cueVideo(src);
-    } else if (this.apiKey && !this.player) {
+    } else {
       this.initializePlayer();
     }
   }
   [apiKeyProperty.setNative](apiKey: string) {
-    if (!this.player) {
-      this.initializePlayer();
-    }
+    this.initializePlayer();
   }
   [playerStyleProperty.getDefault](): number {
     return 1;
@@ -90,120 +89,123 @@ export class YoutubePlayer extends YoutubePlayerBase {
     }
   }
   private initializePlayer(): void {
-    const that = new WeakRef(this);
-    const owner = that.get();
-    const cb = new com.google.android.youtube.player.YouTubePlayer.OnInitializedListener(
-      {
-        onInitializationFailure(provider, error) {
-          owner.notify({
-            eventName: 'error',
-            object: fromObject({ message: error })
-          });
-        },
-        onInitializationSuccess(provider, player, wasRestored) {
-          owner.player = player;
-          const fullScreenCb = new com.google.android.youtube.player.YouTubePlayer.OnFullscreenListener(
-            {
-              onFullscreen(isFullscreen: boolean) {
-                owner.notify({
-                  eventName: FULLSCREEN_EVENT,
-                  object: fromObject({
-                    value: isFullscreen
-                  })
-                });
+    if ( !this._isInit && this.apiKey && this.src ) {
+      this._isInit = true;
+      const that = new WeakRef(this);
+      const owner = that.get();
+      const cb = new com.google.android.youtube.player.YouTubePlayer.OnInitializedListener(
+        {
+          onInitializationFailure(provider, error) {
+            owner.notify({
+              eventName: 'error',
+              object: fromObject({ message: error })
+            });
+          },
+          onInitializationSuccess(provider, player, wasRestored) {
+            owner.player = player;
+            const fullScreenCb = new com.google.android.youtube.player.YouTubePlayer.OnFullscreenListener(
+              {
+                onFullscreen(isFullscreen: boolean) {
+                  owner.notify({
+                    eventName: FULLSCREEN_EVENT,
+                    object: fromObject({
+                      value: isFullscreen
+                    })
+                  });
+                }
               }
-            }
-          );
-          const playbackEventCb = new com.google.android.youtube.player.YouTubePlayer.PlaybackEventListener(
-            {
-              onBuffering(isBuffering: boolean) {
-                owner.notify({
-                  eventName: BUFFERING_EVENT,
-                  object: fromObject({
-                    value: isBuffering
-                  })
-                });
-              },
-              onPaused() {
-                owner.notify({
-                  eventName: PAUSED_EVENT,
-                  object: fromObject({})
-                });
-              },
-              onPlaying() {
-                owner.notify({
-                  eventName: PLAYING_EVENT,
-                  object: fromObject({})
-                });
-              },
-              onSeekTo(newPositionMillis: number) {
-                owner.notify({
-                  eventName: SEEK_EVENT,
-                  object: fromObject({
-                    value: newPositionMillis
-                  })
-                });
-              },
-              onStopped() {
-                owner.notify({
-                  eventName: STOPPED_EVENT,
-                  object: fromObject({})
-                });
+            );
+            const playbackEventCb = new com.google.android.youtube.player.YouTubePlayer.PlaybackEventListener(
+              {
+                onBuffering(isBuffering: boolean) {
+                  owner.notify({
+                    eventName: BUFFERING_EVENT,
+                    object: fromObject({
+                      value: isBuffering
+                    })
+                  });
+                },
+                onPaused() {
+                  owner.notify({
+                    eventName: PAUSED_EVENT,
+                    object: fromObject({})
+                  });
+                },
+                onPlaying() {
+                  owner.notify({
+                    eventName: PLAYING_EVENT,
+                    object: fromObject({})
+                  });
+                },
+                onSeekTo(newPositionMillis: number) {
+                  owner.notify({
+                    eventName: SEEK_EVENT,
+                    object: fromObject({
+                      value: newPositionMillis
+                    })
+                  });
+                },
+                onStopped() {
+                  owner.notify({
+                    eventName: STOPPED_EVENT,
+                    object: fromObject({})
+                  });
+                }
               }
-            }
-          );
-          const playerStateChangeCb = new com.google.android.youtube.player.YouTubePlayer.PlayerStateChangeListener(
-            {
-              onAdStarted() {
-                owner.notify({
-                  eventName: ADSTARTED_EVENT,
-                  object: fromObject({})
-                });
-              },
-              onError(reason) {
-                owner.notify({
-                  eventName: ERROR_EVENT,
-                  object: fromObject({
-                    value: reason.toString()
-                  })
-                });
-              },
-              onLoaded(videoId: string) {
-                owner.notify({
-                  eventName: VIDEO_LOADED_EVENT,
-                  object: fromObject({
-                    value: videoId
-                  })
-                });
-              },
-              onLoading() {
-                owner.notify({
-                  eventName: LOADING_EVENT,
-                  object: fromObject({})
-                });
-              },
-              onVideoEnded() {
-                owner.notify({
-                  eventName: ENDED_EVENT,
-                  object: fromObject({})
-                });
-              },
-              onVideoStarted() {
-                owner.notify({
-                  eventName: STARTED_EVENT,
-                  object: fromObject({})
-                });
+            );
+            const playerStateChangeCb = new com.google.android.youtube.player.YouTubePlayer.PlayerStateChangeListener(
+              {
+                onAdStarted() {
+                  owner.notify({
+                    eventName: ADSTARTED_EVENT,
+                    object: fromObject({})
+                  });
+                },
+                onError(reason) {
+                  owner.notify({
+                    eventName: ERROR_EVENT,
+                    object: fromObject({
+                      value: reason.toString()
+                    })
+                  });
+                },
+                onLoaded(videoId: string) {
+                  owner.notify({
+                    eventName: VIDEO_LOADED_EVENT,
+                    object: fromObject({
+                      value: videoId
+                    })
+                  });
+                },
+                onLoading() {
+                  owner.notify({
+                    eventName: LOADING_EVENT,
+                    object: fromObject({})
+                  });
+                },
+                onVideoEnded() {
+                  owner.notify({
+                    eventName: ENDED_EVENT,
+                    object: fromObject({})
+                  });
+                },
+                onVideoStarted() {
+                  owner.notify({
+                    eventName: STARTED_EVENT,
+                    object: fromObject({})
+                  });
+                }
               }
-            }
-          );
-          player.setPlayerStateChangeListener(playerStateChangeCb);
-          player.setPlaybackEventListener(playbackEventCb);
-          player.setOnFullscreenListener(fullScreenCb);
-          player.cueVideo(owner.src);
+            );
+            player.setPlayerStateChangeListener(playerStateChangeCb);
+            player.setPlaybackEventListener(playbackEventCb);
+            player.setOnFullscreenListener(fullScreenCb);
+            player.cueVideo(owner.src);
+          }
         }
-      }
-    );
-    this._fragment.initialize(this.apiKey, cb);
+      );
+      this._fragment.initialize(this.apiKey, cb);
+    }
   }
   public play(): void {
     if (this.player) {
@@ -219,6 +221,13 @@ export class YoutubePlayer extends YoutubePlayerBase {
     if (this.player) {
       this.player.release();
       this.player = null;
+    }
+    if (this._fragment) {
+      const activity = app.android.foregroundActivity;
+      if (activity) {
+        activity.getFragmentManager().beginTransaction().remove(this._fragment).commit();
+        this._fragment = null;
+      }
     }
   }
   public pause(): void {
