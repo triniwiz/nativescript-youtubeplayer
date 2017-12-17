@@ -13,6 +13,7 @@
     }
   },
   "scripts": {
+    "build": "tsc",
     "build.plugin": "cd ../src && npm run build",
     "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
     "ns-bundle": "ns-bundle",
@@ -24,15 +25,15 @@
     "build-ios-bundle": "npm run ns-bundle --ios --build-app"
   },
   "dependencies": {
-    "@angular/animations": "~4.4.0",
-    "@angular/common": "~4.4.0",
-    "@angular/compiler": "~4.4.0",
-    "@angular/core": "~4.4.0",
-    "@angular/forms": "~4.4.0",
-    "@angular/http": "~4.4.0",
-    "@angular/platform-browser": "~4.4.0",
-    "@angular/router": "~4.4.0",
-    "nativescript-angular": "~4.4.0",
+    "@angular/animations": "4.4.1",
+    "@angular/common": "4.4.1",
+    "@angular/compiler": "4.4.1",
+    "@angular/core": "4.4.1",
+    "@angular/forms": "4.4.1",
+    "@angular/http": "4.4.1",
+    "@angular/platform-browser": "~4.4.1",
+    "@angular/router": "~4.4.1",
+    "nativescript-angular": "~4.4.1",
     "nativescript-theme-core": "~1.0.2",
     "nativescript-youtubeplayer": "../src",
     "reflect-metadata": "~0.1.8",
@@ -55,8 +56,8 @@
     "nativescript-worker-loader": "~0.8.1",
     "raw-loader": "~0.5.1",
     "resolve-url-loader": "~2.1.0",
-    "tslint": "^5.0.0",
-    "typescript": "~2.3.1",
+    "tslint": "~5.4.3",
+    "typescript": "~2.3.0",
     "webpack": "~3.2.0",
     "webpack-bundle-analyzer": "^2.8.2",
     "webpack-sources": "~1.0.1"

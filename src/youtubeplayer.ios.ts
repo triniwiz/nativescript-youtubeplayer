@@ -13,13 +13,20 @@ import {
 import { fromObject } from 'tns-core-modules/data/observable';
 import * as utils from 'tns-core-modules/utils/utils';
 import * as application from 'tns-core-modules/application';
-import { layout } from 'tns-core-modules/ui/core/view';
+import { layout, View } from 'tns-core-modules/ui/core/view';
+import * as uiUtils from 'tns-core-modules/ui/utils';
 export class YoutubePlayer extends YoutubePlayerBase {
+  specHeight: number;
+  specWidth: number;
+  layoutHeight: number;
+  layoutWidth: number;
   _fullScreen: boolean;
   private _playerVars: any;
   nativeView: YTPlayerView;
   _observer: any;
-  public createNativeView() {
+  delegate: YTPlayerViewDelegateImpl;
+  constructor() {
+    super();
     this._playerVars = NSDictionary.dictionaryWithObjectsForKeys(
       <any>[1, 2, 1, 1, 0, 1, 1, 0, 0, 1, 3],
       <any>[
@@ -36,17 +43,16 @@ export class YoutubePlayer extends YoutubePlayerBase {
         'iv_load_policy'
       ]
     );
-    return YTPlayerView.new();
+    this.nativeView = YTPlayerView.new();
+    this.delegate = YTPlayerViewDelegateImpl.initWithOwner(new WeakRef(this));
   }
   public initNativeView(): void {
-    this.nativeView.delegate = YTPlayerViewDelegateImpl.initWithOwner(
-      new WeakRef(this)
-    );
+    this.nativeView.delegate = this.delegate;
+    super.initNativeView();
   }
   [srcProperty.setNative](src: string) {
     this.nativeView.loadWithVideoIdPlayerVars(src, <any>this._playerVars);
   }
-
   [optionsProperty.setNative](options: any) {
     let opts = NSDictionary.dictionaryWithDictionary(this.options);
     this._playerVars = opts;

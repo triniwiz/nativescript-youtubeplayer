@@ -1,4 +1,5 @@
 import { Property, View } from 'tns-core-modules/ui/core/view';
+import { ContentView } from 'tns-core-modules/ui/content-view';
 export const FULLSCREEN_EVENT = 'fullScreen';
 export const PLAYING_EVENT = 'playing';
 export const PAUSED_EVENT = 'paused';

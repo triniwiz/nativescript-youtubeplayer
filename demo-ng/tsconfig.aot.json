@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "application": ["node_modules/tns-core-modules/application"],
+      "@angular/*": ["node_modules/@angular/*"],
       "application-settings": ["node_modules/tns-core-modules/application-settings"],
       "camera": ["node_modules/tns-core-modules/camera"],
       "color": ["node_modules/tns-core-modules/color"],
