@@ -1,10 +1,15 @@
 import { YoutubePlayerBase } from './youtubeplayer.common';
 export declare class YoutubePlayer extends YoutubePlayerBase {
+    specHeight: number;
+    specWidth: number;
+    layoutHeight: number;
+    layoutWidth: number;
     _fullScreen: boolean;
     private _playerVars;
     nativeView: YTPlayerView;
     _observer: any;
-    createNativeView(): YTPlayerView;
+    delegate: YTPlayerViewDelegateImpl;
+    constructor();
     initNativeView(): void;
     onMeasure(widthMeasureSpec: number, heightMeasureSpec: number): void;
     play(): void;

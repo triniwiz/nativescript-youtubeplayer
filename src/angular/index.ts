@@ -1,6 +1,6 @@
 import { Directive, NgModule } from '@angular/core';
 import { registerElement } from 'nativescript-angular/element-registry';
-registerElement('YoutubePlayer', () => require('../').YoutubePlayer);
+import { YoutubePlayer } from '../';
 @Directive({
   selector: 'YoutubePlayer'
 })
@@ -11,3 +11,5 @@ export class YoutubePlayerDirective {}
   exports: [YoutubePlayerDirective]
 })
 export class YoutubePlayerModule {}
+
+registerElement('YoutubePlayer', () => YoutubePlayer);

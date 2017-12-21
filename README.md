@@ -10,7 +10,7 @@
 tns plugin add nativescript-youtubeplayer
 ```
 
-## Usage
+# Configuration
 
 ### Android
 
@@ -46,15 +46,7 @@ import { YoutubePlayerModule } from 'nativescript-youtubeplayer/angular';
 ```
 
 
-## Properties
-
-| Property | Default | Type | Required | Description  |
-| --- | --- | --- | ---| ---|
-| src | null | string | <ul><li>- [x] </li></ul> | Set the videoId to play e.g (Z0LWuKQcrUA) => https://www.youtube.com/watch?v=Z0LWuKQcrUA
-| options | null | Object | <ul><li>- [ ] </li></ul> | Player options [available](https://developers.google.com/youtube/player_parameters) *IOS only*
-| isFullScreen | false  | boolean | <ul><li>- [ ] </li></ul> | Returns if player is currently in fullscreen mode.
-
-## Api
+# Api
 
 | Method | Default | Type | Description  |
 | --- | --- | --- | ---|
@@ -64,6 +56,16 @@ import { YoutubePlayerModule } from 'nativescript-youtubeplayer/angular';
 | pause() | | void | Pauses the currently playing video. | 
 | isPlaying() | false | boolean | Returns is current video is playing. |
 | toggleFullscreen() | | void | Toggle fullscreen mode. |
+
+## Properties
+
+| Property | Default | Type | Required | Description  |
+| --- | --- | --- | ---| ---|
+| src | null | string | <ul><li>- [x] </li></ul> | Set the videoId to play e.g (Z0LWuKQcrUA) => https://www.youtube.com/watch?v=Z0LWuKQcrUA
+| options | null | Object | <ul><li>- [ ] </li></ul> | Player options [available](https://developers.google.com/youtube/player_parameters) *IOS only*
+| isFullScreen | false  | boolean | <ul><li>- [ ] </li></ul> | Returns if player is currently in fullscreen mode.
+
+
 
 ## Example Image
 | IOS | Android|

@@ -1,2 +1,13 @@
-<!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
-<page-router-outlet></page-router-outlet>
+<ActionBar title="My App" class="action-bar">
+</ActionBar>
+
+
+<StackLayout rows="auto,auto,auto,auto,auto,auto">
+    <YoutubePlayer height="50%" width="90%" id="player" options="{{options}}" apiKey="AIzaSyAUm14Rg9vH_Zv9X5BeWQ8UyMMypEq4htA"
+        src="{{src}}" backgroundColor="gray"></YoutubePlayer>
+    <Button row="1" text="Toggle FullScreen" (tap)="toggleFullScreen($event)"></Button>
+    <Button row="2" text="Change Source" (tap)="changeSource($event)"></Button>
+    <Button row="3" text="Load Dancehall" (tap)="getDanceHall($event)"></Button>
+    <Button row="4" text="Load HipHop" (tap)="getHipHop($event)"></Button>
+    <Button row="5" text="Load Soca" (tap)="getSoca($event)"></Button>
+</StackLayout>
