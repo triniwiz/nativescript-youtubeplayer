@@ -3,3 +3,4 @@
 !*.d.ts
 tsconfig.json
 tsconfig.aot.json
+hooks/
