@@ -1,0 +1,15 @@
+repositories {
+  maven { url "https://jitpack.io" }
+}
+
+android {
+    productFlavors {
+        "nativescript-youtubeplayer" {
+            dimension "nic"
+        }
+    }
+}
+
+dependencies {
+  compile 'com.github.tommus:youtube-android-player-api:1.2.2'
+}
