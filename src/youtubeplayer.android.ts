@@ -224,7 +224,7 @@ export class YoutubePlayer extends YoutubePlayerBase {
     }
     if (this._fragment) {
       const activity = app.android.foregroundActivity;
-      if (activity) {
+      if (activity && !activity.isFinishing()) {
         activity.getFragmentManager().beginTransaction().remove(this._fragment).commit();
         this._fragment = null;
       }
