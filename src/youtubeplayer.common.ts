@@ -1,5 +1,5 @@
 import { Property, View } from 'tns-core-modules/ui/core/view';
-import { ContentView } from 'tns-core-modules/ui/content-view';
+
 export const FULLSCREEN_EVENT = 'fullScreen';
 export const PLAYING_EVENT = 'playing';
 export const PAUSED_EVENT = 'paused';
@@ -13,21 +13,21 @@ export const VIDEO_LOADED_EVENT = 'videoLoaded';
 export const ERROR_EVENT = 'error';
 export const SEEK_EVENT = 'seek';
 export const apiKeyProperty = new Property<YoutubePlayerBase, string>({
-  name: 'apiKey',
-  defaultValue: ''
+    name: 'apiKey',
+    defaultValue: ''
 });
 export const srcProperty = new Property<YoutubePlayerBase, string>({
-  name: 'src',
-  defaultValue: ''
+    name: 'src',
+    defaultValue: ''
 });
 export const optionsProperty = new Property<YoutubePlayerBase, any>({
-  name: 'options'
+    name: 'options'
 });
 
 export class YoutubePlayerBase extends View {
-  apiKey: string;
-  src: string;
-  options: any;
+    apiKey: string;
+    src: string;
+    options: any;
 }
 
 srcProperty.register(YoutubePlayerBase);

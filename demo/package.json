@@ -1,11 +1,11 @@
 {
   "nativescript": {
     "id": "com.github.triniwiz.youtubeplayer",
-    "tns-ios": {
-      "version": "3.4.0"
-    },
     "tns-android": {
-      "version": "3.4.0"
+      "version": "4.2.0"
+    },
+    "tns-ios": {
+      "version": "4.2.0"
     }
   },
   "scripts": {
@@ -23,7 +23,7 @@
     "nativescript-theme-core": "^1.0.4",
     "nativescript-unit-test-runner": "^0.3.4",
     "nativescript-youtubeplayer": "../src",
-    "tns-core-modules": "^3.4.0"
+    "tns-core-modules": "^4.2.0"
   },
   "devDependencies": {
     "awesome-typescript-loader": "~3.1.3",

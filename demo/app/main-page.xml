@@ -1,14 +1,12 @@
 <Page 
   xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page" 
   xmlns:ui="nativescript-youtubeplayer">
-  <ScrollView>
-    <StackLayout height="100%" class="p-20" id="container">
+    <GridLayout rows="*,auto,auto,auto,auto,auto,auto" height="100%" class="p-20" id="container">
       <ui:YoutubePlayer id="player" options="{{options}}" apiKey="AIzaSyAUm14Rg9vH_Zv9X5BeWQ8UyMMypEq4htA" src="{{src}}" backgroundColor="gray" />
-      <Button text="Toggle FullScreen" tap="toggleFullScreen"/>
-      <Button text="Change Source" tap="{{changeSource}}"/>
-      <Button text="Load Dancehall" tap="{{getDanceHall}}"/>
-      <Button text="Load HipHop" tap="{{getHipHop}}"/>
-      <Button text="Load Soca" tap="{{getSoca}}"/>
-    </StackLayout>
-  </ScrollView>
+      <Button row="1" text="Toggle FullScreen" tap="toggleFullScreen"/>
+      <Button row="2" text="Change Source" tap="{{changeSource}}"/>
+      <Button row="3" text="Load Dancehall" tap="{{getDanceHall}}"/>
+      <Button row="4" text="Load HipHop" tap="{{getHipHop}}"/>
+      <Button row="5" text="Load Soca" tap="{{getSoca}}"/>
+    </GridLayout>
 </Page>

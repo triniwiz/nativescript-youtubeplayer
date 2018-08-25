@@ -6,9 +6,15 @@
 
 ## Installation
 
-```
-tns plugin add nativescript-youtubeplayer
-```
+#### NativeScript 4x
+
+* `tns plugin add nativescript-youtubeplayer`
+
+
+#### NativeScript 3x
+
+* `tns plugin add nativescript-youtubeplayer@2.2.6`
+
 
 # Configuration
 

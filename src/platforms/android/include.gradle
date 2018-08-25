@@ -3,11 +3,7 @@ repositories {
 }
 
 android {
-    productFlavors {
-        "nativescript-youtubeplayer" {
-            dimension "nic"
-        }
-    }
+    
 }
 
 dependencies {
