@@ -54,7 +54,9 @@ export class YoutubePlayer extends YoutubePlayerBase {
     }
 
     [srcProperty.setNative](src: string) {
-        this.nativeView.loadWithVideoIdPlayerVars(src, <any>this._playerVars);
+        if (src) {
+            this.nativeView.loadWithVideoIdPlayerVars(src, <any>this._playerVars);
+        }
     }
 
     [optionsProperty.setNative](options: any) {
