@@ -6,10 +6,10 @@
   "nativescript": {
     "id": "com.github.triniwiz.youtubeplayer",
     "tns-android": {
-      "version": "4.0.0"
+      "version": "4.2.1"
     },
     "tns-ios": {
-      "version": "4.0.1"
+      "version": "4.2.1"
     }
   },
   "scripts": {
@@ -25,41 +25,34 @@
     "build-ios-bundle": "npm run ns-bundle --ios --build-app"
   },
   "dependencies": {
-    "@angular/animations": "5.0.0",
-    "@angular/common": "5.0.0",
-    "@angular/compiler": "5.0.0",
-    "@angular/core": "5.0.0",
-    "@angular/forms": "5.0.0",
-    "@angular/http": "5.0.0",
-    "@angular/platform-browser": "5.0.0",
-    "@angular/router": "5.0.0",
-    "nativescript-angular": "5.0.0",
+    "@angular/animations": "~6.1.0",
+    "@angular/common": "~6.1.0",
+    "@angular/compiler": "~6.1.0",
+    "@angular/core": "~6.1.0",
+    "@angular/forms": "~6.1.0",
+    "@angular/http": "~6.1.0",
+    "@angular/platform-browser": "~6.1.0",
+    "@angular/platform-browser-dynamic": "~6.1.0",
+    "@angular/router": "~6.1.0",
+    "nativescript-angular": "~6.1.0",
     "nativescript-theme-core": "~1.0.2",
     "nativescript-youtubeplayer": "../src",
     "reflect-metadata": "~0.1.8",
-    "rxjs": "~5.3.0",
-    "tns-core-modules": "~3.4.0",
+    "rxjs": "~6.0.0",
+    "tns-core-modules": "~4.1.0",
     "zone.js": "~0.8.2"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "5.0.0",
-    "@ngtools/webpack": "~1.6.0",
-    "babel-traverse": "6.25.0",
-    "babel-types": "6.25.0",
-    "babylon": "6.17.4",
-    "copy-webpack-plugin": "~4.0.1",
-    "extract-text-webpack-plugin": "~3.0.0",
+    "@angular/compiler-cli": "~6.1.0",
+    "@ngtools/webpack": "~6.2.0-rc.0",
+    "babel-traverse": "6.26.0",
+    "babel-types": "6.26.0",
+    "babylon": "6.18.0",
     "lazy": "1.0.11",
-    "nativescript-css-loader": "~0.26.0",
-    "nativescript-dev-typescript": "~0.5.0",
-    "nativescript-dev-webpack": "^0.8.0",
-    "nativescript-worker-loader": "~0.8.1",
-    "raw-loader": "~0.5.1",
-    "resolve-url-loader": "~2.1.0",
-    "tslint": "~5.4.3",
-    "typescript": "~2.4.0",
-    "webpack": "~3.2.0",
-    "webpack-bundle-analyzer": "^2.8.2",
-    "webpack-sources": "~1.0.1"
+    "nativescript-dev-sass": "^1.6.0",
+    "nativescript-dev-typescript": "^0.5.0",
+    "nativescript-dev-webpack": "rc",
+    "typescript": "~2.8.2",
+    "tslint": "~5.4.3"
   }
 }

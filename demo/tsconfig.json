@@ -29,7 +29,12 @@
     },
     "exclude": [
         "node_modules",
+        "../src/node_modules",
         "platforms"
+    ],
+    "include": [
+        "../src",
+        "**/*"
     ],
     "compileOnSave": false
 }

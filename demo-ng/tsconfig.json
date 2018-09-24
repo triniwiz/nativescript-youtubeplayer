@@ -23,7 +23,12 @@
     },
     "exclude": [
         "node_modules",
+        "../src/node_modules",
         "platforms",
-        "**/*.aot.ts"
+        "**/*.spec.ts"
+    ],
+    "include": [
+        "../src",
+        "**/*"
     ]
 }
