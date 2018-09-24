@@ -113,6 +113,7 @@ export class YoutubePlayer extends YoutubePlayerBase {
                         const fullScreenCb = new com.google.android.youtube.player.YouTubePlayer.OnFullscreenListener(
                             {
                                 onFullscreen(isFullscreen: boolean) {
+                                    owner._fullScreen = isFullscreen;
                                     owner.notify({
                                         eventName: FULLSCREEN_EVENT,
                                         object: fromObject({
