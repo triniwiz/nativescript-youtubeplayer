@@ -24,6 +24,8 @@
         "demo.ng.android": "npm i && npm run tsc && cd ../demo-ng && tns run android --syncAllFiles",
         "demo.ng.webpack.android": "npm i && npm run tsc && cd ../demo-ng && npm run start-android-bundle",
         "demo.ng.webpack.ios": "npm i && npm run tsc && cd ../demo-ng && npm run start-ios-bundle",
+        "demo-vue.ios": "npm run tsc && cd ../demo-vue && tns run ios --bundle --syncAllFiles",
+        "demo-vue.android": "npm run tsc && cd ../demo-vue && tns run android --bundle --syncAllFiles",
         "clean": "rm -rf node_modules && cd ../demo && rm -rf hooks node_modules platforms && cd ../src && npm run plugin.link",
         "ngc": "ngc --project tsconfig.aot.json",
         "prepublish": "npm run ngc",
@@ -48,9 +50,6 @@
     "license": "Apache-2.0",
     "homepage": "https://github.com/triniwiz/nativescript-youtubeplayer",
     "readmeFilename": "README.md",
-    "peerDependencies": {
-        "tns-core-modules": "^3.0.0"
-    },
     "devDependencies": {
         "@angular/core": "~6.1.0",
         "@angular/common": "~6.1.0",
@@ -62,14 +61,14 @@
         "@angular/router": "~6.1.0",
         "nativescript-angular": "~6.1.0",
         "typescript": "~2.8.2",
-		"prompt": "^1.0.0",
-		"rimraf": "^2.6.2",
-		"tslint": "^5.11.0",
-		"semver": "^5.5.0",
-        "tns-core-modules": "^4.2.0",
-		"tns-platform-declarations": "^4.2.0",
+        "prompt": "^1.0.0",
+        "rimraf": "^2.6.2",
+        "tslint": "^5.11.0",
+        "semver": "^5.5.0",
+        "tns-core-modules": "~5.1.2",
+        "tns-platform-declarations": "~5.1.2",
         "zone.js": "^0.8.12",
-		"rxjs": "~6.0.0"
+        "rxjs": "~6.0.0"
     },
     "bootstrapper": "nativescript-plugin-seed"
 }

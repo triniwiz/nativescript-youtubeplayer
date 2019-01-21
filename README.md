@@ -24,6 +24,9 @@ Api key follow ➡
 [link](https://developers.google.com/youtube/android/player/register) to get
 your api key
 
+# Usage
+
+### XML
 IMPORTANT: Make sure you include xmlns:ui="nativescript-youtubeplayer" on the
 Page element
 
@@ -31,8 +34,7 @@ Page element
 <ui:YoutubePlayer id="player" apiKey="AIzaSyCDH3BGQZT2ebUfSE8D3I8NLqaCPu4FRh0" src="{{src}}" height="250" width="100%" backgroundColor="gray" />
 ```
 
-#### Angular
-
+### Angular
 ```
 import { YoutubePlayerModule } from 'nativescript-youtubeplayer/angular';
 
@@ -51,6 +53,27 @@ import { YoutubePlayerModule } from 'nativescript-youtubeplayer/angular';
 <YoutubePlayer id="player" apiKey="AIzaSyCDH3BGQZT2ebUfSE8D3I8NLqaCPu4FRh0" src="{{src}}" height="250" width="100%" backgroundColor="gray"></YoutubePlayer>
 ```
 
+### Vue
+Register the plugin in `app.js` (or depending on your app's setup: `app.ts`, or `main.js`, etc):
+
+```javascript
+import Vue from 'nativescript-vue'
+Vue.registerElement('YoutubePlayer', () => require('nativescript-youtubeplayer').YoutubePlayer)
+```
+
+```vue
+<template>
+  <Page class="page">
+    <ActionBar class="action-bar">
+      <Label class="action-bar-title" text="Home"></Label>
+    </ActionBar>
+
+    <StackLayout>
+      <YoutubePlayer src="wH_0_pijbZY" apiKey="your-api-key"/>
+    </StackLayout>
+  </Page>
+</template>
+```
 
 # Api
 
