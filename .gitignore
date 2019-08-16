@@ -26,6 +26,7 @@ demo-ng/*.d.ts
 demo-ng/lib
 demo-ng/platforms
 demo-ng/node_modules
+!demo-vue/app/**/*.js
 node_modules
 publish/src
 publish/package
