@@ -38,10 +38,11 @@ export class YoutubePlayer extends YoutubePlayerBase {
         this._layoutId = android.view.View.generateViewId();
         const nativeView = new android.widget.LinearLayout(this._context);
         nativeView.setId(this._layoutId);
-        const manager = app.android.foregroundActivity.getFragmentManager();
+        // this uses a private API, but it's the best (or rather: easiest) way I could find to support showing the fragment in modals
+        const manager: android.support.v4.app.FragmentManager = (<any>this)._getFragmentManager();
         const fragment = manager.findFragmentByTag(FRAGMENT_TAG);
         if (!fragment) {
-            this._fragment = com.google.android.youtube.player.YouTubePlayerFragment.newInstance();
+            this._fragment = com.google.android.youtube.player.YouTubePlayerSupportFragment.newInstance();
             manager
                 .beginTransaction()
                 .replace(this._layoutId, this._fragment, FRAGMENT_TAG)
@@ -236,7 +237,10 @@ export class YoutubePlayer extends YoutubePlayerBase {
         if (this._fragment) {
             const activity = app.android.foregroundActivity;
             if (activity && !activity.isFinishing()) {
-                activity.getFragmentManager().beginTransaction().remove(this._fragment).commit();
+                (<android.support.v4.app.FragmentManager>(<any>this)._getFragmentManager())
+                    .beginTransaction()
+                    .remove(this._fragment)
+                    .commit();
                 this._fragment = null;
             }
         }
