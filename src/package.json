@@ -18,6 +18,7 @@
         "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/+(node_modules|typings)/**\"",
         "plugin.link": "npm link && cd ../demo && npm link nativescript-youtubeplayer && cd ../demo-ng && npm link nativescript-youtubeplayer && cd ../src",
         "plugin.tscwatch": "npm run tsc -- -w",
+        "plugin.prepare": "npm run tsc && cd ../demo && tns plugin remove nativescript-youtubeplayer && tns plugin add ../src",
         "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
         "demo.android": "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
         "demo.ng.ios": "npm i && npm run tsc && cd ../demo-ng && tns run ios --syncAllFiles",

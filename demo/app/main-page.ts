@@ -7,6 +7,7 @@ export function pageLoaded(args: observable.EventData) {
   // Get the event sender
   let page = <pages.Page>args.object;
   page.bindingContext = new HelloWorldModel();
+  page.bindingContext.changeSource();
   player = page.getViewById('player');
   player.on('playing', args => {
     console.log('playing');

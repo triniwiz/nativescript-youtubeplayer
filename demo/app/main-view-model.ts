@@ -3,15 +3,15 @@ export class HelloWorldModel extends Observable {
   src = 'L_jWHffIx5E';
   options = { rel: 1 };
   changeSource() {
-    this.set('src', 'dQw4w9WgXcQ');
+    this.set('src', 'Rw2AideHiu4');
   }
   getDanceHall() {
-    this.set('src', 'wH_0_pijbZY');
+    this.set('src', 'ZCj1XdHSsTU');
   }
   getHipHop() {
-    this.set('src', 'lwk5OUII9Vc');
+    this.set('src', 'oLmm6xGtrHw');
   }
   getSoca() {
-    this.set('src', 'vEG4qNW33mA');
+    this.set('src', 'I8j7XJxew7s');
   }
 }
