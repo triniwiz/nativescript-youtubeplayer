@@ -52,7 +52,6 @@ import { YoutubePlayerModule } from 'nativescript-youtubeplayer/angular';
 | --- | --- | --- | ---|
 | play() | | void | Starts video playback of the currently cued / loaded video. |
 | stop() | | void | Stops and cancels loading of the current video. |
-
 | destroy() | | void | Destroy the video player and free resources. |
 | pause() | | void | Pauses the currently playing video. | 
 | isPlaying() | false | boolean | Returns is current video is playing. |
