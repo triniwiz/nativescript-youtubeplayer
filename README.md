@@ -6,6 +6,11 @@
 
 ## Installation
 
+#### NativeScript 7+
+
+* `ns plugin add @triniwiz/nativescript-youtubeplayer`
+
+
 #### NativeScript 4x
 
 * `tns plugin add nativescript-youtubeplayer`
