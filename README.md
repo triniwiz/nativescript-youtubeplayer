@@ -6,7 +6,7 @@
 
 ## Installation
 
-#### NativeScript 7+
+#### [NativeScript 7+](https://github.com/triniwiz/nativescript-plugins)
 
 * `ns plugin add @triniwiz/nativescript-youtubeplayer`
 
